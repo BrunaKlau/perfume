@@ -21,7 +21,7 @@ async function fetchPerfumes() {
   });
 }
 
-// Adicionar novo perfume
+// Adiciona
 perfumeForm.onsubmit = async (e) => {
   e.preventDefault();
   const nome = document.getElementById('nome').value;
@@ -39,11 +39,10 @@ perfumeForm.onsubmit = async (e) => {
   fetchPerfumes();
 };
 
-// Excluir perfume
+// Excluir
 window.deletePerfume = async (id) => {
   await fetch(`${backendUrl}/${id}`, { method: 'DELETE' });
   fetchPerfumes();
 };
 
-// Inicializar listagem ao carregar a página
 fetchPerfumes();
