@@ -24,15 +24,17 @@ async function fetchPerfumes() {
 // Adiciona
 perfumeForm.onsubmit = async (e) => {
   e.preventDefault();
+  const image = document.getElementById('image').value;
   const nome = document.getElementById('nome').value;
   const marca = document.getElementById('marca').value;
   const categoria = document.getElementById('categoria').value;
+  const localCompra = document.getElementById('localCompra').value;
   const notas = document.getElementById('notas').value.split(',').map(s => s.trim());
 
   await fetch(backendUrl, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ nome, marca, categoria, notas })
+    body: JSON.stringify({image, nome, marca, categoria, nota, data })
   });
 
   perfumeForm.reset();
